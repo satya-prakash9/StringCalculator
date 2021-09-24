@@ -11,8 +11,18 @@ public class Calculator {
 		}else{
 			String[] t = splitNumbers(numbers);
 			int sum=0;
+			String negatives = "";
 			for(int i=0;i<t.length; i++) {
-				sum+=toInt(t[i]);
+				int n = toInt(t[i]);
+				if(n<0) {
+					negatives+=n+" ";
+				}else {
+					sum+=n;
+				}
+			}
+			if(!negatives.isEmpty()) {
+				String message = "negatives not allowed ";
+				throw new RuntimeException(message+negatives.trim());
 			}
 			return sum;
 		}
