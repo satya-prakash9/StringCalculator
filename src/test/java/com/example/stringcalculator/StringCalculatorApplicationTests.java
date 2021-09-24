@@ -17,4 +17,9 @@ class StringCalculatorApplicationTests {
 		assertEquals(0, Calculator.add(""));
 	}
 	
+	@Test
+	void shouldReturnNumberWhenNumber() {
+		assertEquals(1, Calculator.add("1"));
+	}
+	
 }
