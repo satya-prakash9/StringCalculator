@@ -42,4 +42,10 @@ class StringCalculatorApplicationTests {
 		assertEquals(6, Calculator.add("1,2\n3"));
 	}
 	
+	//test6
+	@Test
+	void shouldAcceptCustomDelimiters() {
+		assertEquals("3", Calculator.add("//;\n1;2"));
+	}
+	
 }
