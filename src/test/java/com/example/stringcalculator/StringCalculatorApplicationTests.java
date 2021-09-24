@@ -45,7 +45,7 @@ class StringCalculatorApplicationTests {
 	//test6
 	@Test
 	void shouldAcceptCustomDelimiters() {
-		assertEquals("3", Calculator.add("//;\n1;2"));
+		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 	
 }

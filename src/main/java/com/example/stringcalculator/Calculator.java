@@ -1,12 +1,15 @@
 package com.example.stringcalculator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Calculator {
 	
 	public static int add(String numbers) {
 		if(numbers.isEmpty()) {
 			return 0;
 		}else{
-			String[] t = splitNumbers(numbers, ",|\n");
+			String[] t = splitNumbers(numbers);
 			int sum=0;
 			for(int i=0;i<t.length; i++) {
 				sum+=toInt(t[i]);
@@ -15,8 +18,15 @@ public class Calculator {
 		}
 	}
 	
-	private static String[] splitNumbers(String numbers, String delimiter) {
-		return numbers.split(delimiter);
+	private static String[] splitNumbers(String numbers) {
+		if(numbers.startsWith("//")) {
+			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(numbers);
+			m.matches();
+			String customDelimiter = m.group(1);
+			String data =  m.group(2);
+			return data.split(customDelimiter);
+		}
+		return numbers.split(",|\n");
 	}
 	
 	private static int toInt(String a) throws NumberFormatException{
