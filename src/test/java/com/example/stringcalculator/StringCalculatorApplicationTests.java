@@ -53,7 +53,7 @@ class StringCalculatorApplicationTests {
 	@Test
 	void shouldRaiseExceptionOnNegativeNubers() {
 		try {
-			Calculator.add("-1,-2,3");
+			Calculator.add("-1,2,3");
 			fail("negatives not allowed");
 		} catch (Exception e) {
 			assertEquals("negatives not allowed -1", e.getMessage());
