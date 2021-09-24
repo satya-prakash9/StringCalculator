@@ -5,16 +5,18 @@ public class Calculator {
 	public static int add(String numbers) {
 		if(numbers.isEmpty()) {
 			return 0;
-		}else if(numbers.contains(",")) {
-			String[] t = numbers.split(",");
+		}else{
+			String[] t = splitNumbers(numbers, ",|\n");
 			int sum=0;
 			for(int i=0;i<t.length; i++) {
 				sum+=toInt(t[i]);
 			}
 			return sum;
-		}else {
-			return toInt(numbers);
 		}
+	}
+	
+	private static String[] splitNumbers(String numbers, String delimiter) {
+		return numbers.split(delimiter);
 	}
 	
 	private static int toInt(String a) throws NumberFormatException{
