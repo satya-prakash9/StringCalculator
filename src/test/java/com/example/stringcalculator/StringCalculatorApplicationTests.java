@@ -1,6 +1,7 @@
 package com.example.stringcalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -46,6 +47,17 @@ class StringCalculatorApplicationTests {
 	@Test
 	void shouldAcceptCustomDelimiters() {
 		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+	
+	//test7
+	@Test
+	void shouldRaiseExceptionOnNegativeNubers() {
+		try {
+			Calculator.add("-1,2,3");
+			fail("negatives not allowed");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 }
